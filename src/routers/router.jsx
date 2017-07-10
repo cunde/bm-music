@@ -1,19 +1,27 @@
-import React from 'react';
-import {Router,Route,Switch,Redirect} from 'react-router';
-import createBrowserHistory from 'history/createBrowserHistory';
+
+// NOTE: components import
+import Rank from '../components/rank/rank';
+import Recommend from '../components/recommend/recommend';
+import Singer from '../components/singer/singer';
+import Search from '../components/search/search';
 
 
-// NOTE: starting page引入
-import HomePage from '../views/App';
 
-const history = createBrowserHistory();
-// NOTE: ending
-export default (
-    <Router history={history}>
-        <Switch>
-            <Route exact={true} path='/' component={HomePage} />
-
-            <Redirect from='*' to='/'  />
-        </Switch>
-    </Router>
-)
+// routes confing
+const routesConf = [
+    {
+        path: '/recommend',
+        component: Recommend
+    }, {
+        path: '/rank',
+        component: Rank
+    }, {
+        path: '/singer',
+        component: Singer
+    }, {
+        path: '/search',
+        component: Search
+    }
+]
+// NOTE: routerInitClass
+export default routesConf

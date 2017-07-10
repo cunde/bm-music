@@ -37,9 +37,16 @@ function getServedPath(appPackageJson) {
     envPublicUrl || (publicUrl ? url.parse(publicUrl).pathname : '/');
   return ensureSlash(servedUrl, true);
 }
+// aliasConf
+const aliasConf = {
+    'react-native': 'react-native-web',
+    '@': resolveApp('src/'),
+    'components': resolveApp('src/components')
+}
 
 // config after eject: we're in ./config/
 module.exports = {
+  aliasConf,
   dotenv: resolveApp('.env'),
   appBuild: resolveApp('build'),
   appPublic: resolveApp('public'),
